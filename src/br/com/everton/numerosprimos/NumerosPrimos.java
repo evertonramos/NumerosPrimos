@@ -10,34 +10,20 @@ public class NumerosPrimos {
 
         primos.add(2); // primeiro número primo
 
-        int numero = 3; // começa em 3... e pula de 2 em 2, pq o único número primo que é par é o 2
-
-        System.out.print("Números primos... 2 ");
-
-        int resto;
-        double quociente;
-
-        while (numero <= 5000) { // altere o 5000 para o número desejado... 
+        for (int numero = 3; numero <= 10000; numero += 2) {
             for (Integer primo : primos) {
-                resto = numero % primo;
-
-                if (resto == 0) {
+                if (numero % primo == 0) {
                     break; // não é primo
                 }
 
-                quociente = (double) numero / primo;
-
-                if (quociente < primo) { // primo!
-                    System.out.print(numero + " ");
-
+                if ((double) numero / primo < primo) { // primo!
                     primos.add(numero);
 
                     break;
                 }
             }
-
-            numero += 2; // apenas números ímpares
         }
-    }
 
+        System.out.println(primos);
+    }
 }
